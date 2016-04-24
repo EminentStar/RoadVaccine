@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="prevention_prompt">졸음방지 알림간격 설정</string>
+    <string name="api_prompt">전방알림 반경 설정</string>
+</resources>

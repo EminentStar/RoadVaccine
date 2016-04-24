@@ -1,0 +1,371 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_drawerMenu_comp_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_white"
+    android:orientation="vertical"
+    tools:context=".DrawerMenuComp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 기능설정 -->
+            <RelativeLayout
+                android:id="@+id/rlayout_setting"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/namizzang">
+
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="@dimen/eight"
+                    android:layout_marginLeft="@dimen/eight"
+                    android:layout_marginTop="@dimen/eight"
+                    android:background="@mipmap/img_appgray" />
+
+                <TextView
+                    android:id="@+id/tv_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/eight"
+                    android:layout_toEndOf="@+id/imageView2"
+                    android:layout_toRightOf="@+id/imageView2"
+                    android:text="기능설정"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/text_white" />
+
+
+            </RelativeLayout>
+
+            <!-- 공사사고 -->
+            <RelativeLayout
+                android:id="@+id/rlayout_accident"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/rlayout_setting"
+                android:layout_margin="@dimen/margin_eight"
+                android:background="@color/text_white">
+
+                <TextView
+                    android:id="@+id/tv_accident"
+                    android:layout_width="@dimen/frag_text_weight"
+                    android:layout_height="@dimen/frag_text_height"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="공사사고"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_black"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/sw_accident"
+                    android:layout_width="@dimen/frag_toggle_weight"
+                    android:layout_height="@dimen/frag_toggle_height"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/tv_accident"
+                    android:layout_toRightOf="@+id/tv_accident"
+                    android:background="@drawable/num1_toggle"
+                    android:checked="true"
+                    android:textColor="@android:color/white"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <Spinner
+                    android:id="@+id/sp_accident"
+                    android:layout_width="@dimen/frag_sp_weight"
+                    android:layout_height="@dimen/frag_sp_height"
+                    android:layout_alignTop="@+id/tv_accident_distance"
+                    android:layout_toEndOf="@+id/tv_accident"
+                    android:layout_toRightOf="@+id/tv_accident"
+                    android:background="@android:color/white"
+                    android:entries="@array/radius"
+                    android:textColor="#ffff2f" />
+
+                <TextView
+                    android:id="@+id/tv_accident_distance"
+                    android:layout_width="@dimen/frag_mText_weight"
+                    android:layout_height="@dimen/frag_mText_height"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/sw_accident"
+                    android:layout_margin="@dimen/frag_mText_margin"
+                    android:gravity="center"
+                    android:text="거리설정"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/frag_mText_size" />
+
+
+            </RelativeLayout>
+
+            <!-- 주의차량 -->
+            <RelativeLayout
+                android:id="@+id/rlayout_caution"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/rlayout_accident"
+                android:layout_margin="@dimen/margin_eight"
+                android:background="@color/text_white">
+
+                <TextView
+                    android:id="@+id/tv_caution"
+                    android:layout_width="@dimen/frag_text_weight"
+                    android:layout_height="@dimen/frag_text_height"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:text="주의차량"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_black"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/sw_caution"
+                    android:layout_width="@dimen/frag_toggle_weight"
+                    android:layout_height="@dimen/frag_toggle_height"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/tv_caution"
+                    android:layout_toRightOf="@+id/tv_caution"
+                    android:background="@drawable/num1_toggle"
+                    android:checked="true"
+                    android:textColor="@android:color/white"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <Spinner
+                    android:id="@+id/sp_caution"
+                    android:layout_width="@dimen/frag_sp_weight"
+                    android:layout_height="@dimen/frag_sp_height"
+                    android:layout_alignTop="@+id/tv_caution_distance"
+                    android:layout_toEndOf="@+id/tv_caution"
+                    android:layout_toRightOf="@+id/tv_caution"
+                    android:background="@android:color/white"
+                    android:entries="@array/caution_radius" />
+
+                <TextView
+                    android:id="@+id/tv_caution_distance"
+                    android:layout_width="@dimen/frag_mText_weight"
+                    android:layout_height="@dimen/frag_mText_height"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/sw_caution"
+                    android:layout_margin="@dimen/frag_mText_margin"
+                    android:gravity="center"
+                    android:text="거리설정"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/frag_mText_size" />
+            </RelativeLayout>
+
+            <!-- 졸음예방 -->
+            <RelativeLayout
+                android:id="@+id/rlayout_prevention"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@+id/rlayout_caution"
+                android:layout_margin="@dimen/margin_eight"
+                android:background="@color/text_white">
+
+                <TextView
+                    android:id="@+id/tv_prevention"
+                    android:layout_width="@dimen/frag_text_weight"
+                    android:layout_height="@dimen/frag_text_height"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:text="졸음예방"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_black"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/sw_prevention"
+                    android:layout_width="@dimen/frag_toggle_weight"
+                    android:layout_height="@dimen/frag_text_height"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/tv_prevention"
+                    android:layout_toRightOf="@+id/tv_prevention"
+                    android:background="@drawable/num1_toggle"
+                    android:checked="true"
+                    android:textColor="@android:color/white"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <Spinner
+
+                    android:id="@+id/sp_prevention_time"
+                    android:layout_width="@dimen/frag_sp_weight"
+                    android:layout_height="@dimen/frag_sp_height"
+                    android:layout_alignTop="@+id/tv_prevention_time"
+                    android:layout_toEndOf="@+id/tv_prevention"
+                    android:layout_toRightOf="@+id/tv_prevention"
+                    android:background="@android:color/white"
+                    android:entries="@array/prevention_time" />
+
+                <TextView
+                    android:id="@+id/tv_prevention_time"
+                    android:layout_width="@dimen/frag_mText_weight"
+                    android:layout_height="@dimen/frag_mText_height"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/sw_prevention"
+                    android:layout_margin="@dimen/frag_mText_margin"
+                    android:gravity="center"
+                    android:text="반복설정"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/frag_mText_size" />
+
+                <Spinner
+                    android:id="@+id/sp_prevention_decibel"
+                    android:layout_width="@dimen/frag_sp_weight"
+                    android:layout_height="@dimen/frag_sp_height"
+                    android:layout_alignLeft="@+id/sp_prevention_time"
+                    android:layout_alignStart="@+id/sp_prevention_time"
+                    android:layout_below="@+id/tv_prevention_time"
+                    android:background="@android:color/white"
+                    android:entries="@array/prevention_dB" />
+
+                <TextView
+
+                    android:id="@+id/tv_prevention_decibel"
+                    android:layout_width="@dimen/frag_mText_weight"
+                    android:layout_height="@dimen/frag_mText_height"
+                    android:layout_alignLeft="@+id/tv_prevention_time"
+                    android:layout_alignStart="@+id/tv_prevention_time"
+                    android:layout_below="@+id/sp_prevention_time"
+                    android:layout_marginTop="@dimen/frag_mText_margin"
+                    android:gravity="center"
+                    android:text="목표설정"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/frag_mText_size" />
+
+
+                <!--
+                <TextView
+                    android:id="@+id/tv_prevention_test"
+                    android:layout_width="@dimen/frag_soundText_weight"
+                    android:layout_height="@dimen/frag_soundText_height"
+                    android:layout_alignLeft="@+id/tv_prevention_decibel"
+                    android:layout_alignStart="@+id/tv_prevention_decibel"
+                    android:layout_below="@+id/sp_prevention_decibel"
+                    android:layout_margin="@dimen/frag_mText_margin"
+                    android:gravity="left"
+                    android:text="목소리 크기\n테스트"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/frag_mText_size"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_test"
+                    android:layout_width="@dimen/frag_text_weight"
+                    android:layout_height="22dp"
+                    android:layout_alignBottom="@+id/tv_prevention_test"
+                    android:layout_alignEnd="@+id/sw_prevention"
+                    android:layout_alignRight="@+id/sw_prevention"
+                    android:layout_alignTop="@+id/tv_prevention_test"
+                    android:layout_toRightOf="@+id/tv_prevention_test"
+                    android:background="@drawable/img_speaker"
+                    android:text="" /> -->
+
+
+            </RelativeLayout>
+
+
+            <!-- 위치전송 -->
+            <RelativeLayout
+                android:id="@+id/rlayout_myInfo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/rlayout_prevention"
+                android:layout_margin="@dimen/margin_eight"
+                android:background="@color/text_white">
+
+                <!--
+                <TextView
+                    android:id="@+id/tv_myInfo"
+                    android:layout_width="@dimen/frag_text_weight"
+                    android:layout_height="@dimen/frag_text_height"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:text="위치전송"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_black"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/sw_myInfo"
+                    android:layout_width="@dimen/frag_toggle_weight"
+                    android:layout_height="@dimen/frag_toggle_height"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/tv_myInfo"
+                    android:layout_toRightOf="@+id/tv_myInfo"
+                    android:background="@drawable/num1_toggle"
+                    android:checked="true"
+                    android:textColor="@android:color/white"
+                    android:textOff=""
+                    android:textOn="" /> -->
+            </RelativeLayout>
+
+            <!-- CCTV -->
+            <RelativeLayout
+                android:id="@+id/rlayout_cctv"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/rlayout_prevention"
+                android:layout_margin="@dimen/margin_eight"
+                android:background="@color/text_white">
+
+                <!--
+                <TextView
+                    android:id="@+id/tv_cctv"
+                    android:layout_width="@dimen/frag_text_weight"
+                    android:layout_height="@dimen/frag_text_height"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:text="간편보기"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_black"
+                    android:textStyle="bold" />
+
+                <ToggleButton
+                    android:id="@+id/sw_cctv"
+                    android:layout_width="@dimen/frag_toggle_weight"
+                    android:layout_height="@dimen/frag_toggle_height"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/tv_cctv"
+                    android:layout_toRightOf="@+id/tv_cctv"
+                    android:background="@drawable/num1_toggle"
+                    android:checked="true"
+                    android:textColor="@android:color/white"
+                    android:textOff=""
+                    android:textOn="" /> -->
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

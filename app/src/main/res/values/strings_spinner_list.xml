@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="radius">
+        <item>2km</item>
+        <item>3km</item>
+        <item>4km</item>
+        <item>5km</item>
+        <item>6km</item>
+        <item>7km</item>
+        <item>8km</item>
+    </string-array>
+
+    <string-array name="caution_radius">
+        <item>1km</item>
+        <item>2km</item>
+        <item>3km</item>
+       <item>4km</item>
+    </string-array>
+
+    <string-array name="prevention_dB">
+        <item>230</item>
+        <item>250</item>
+        <item>270</item>
+        <item>290</item>
+        <item>310</item>
+        <item>330</item>
+        <item>350</item>
+    </string-array>
+
+    <string-array name="prevention_time">
+        <item>30min</item>
+        <item>40min</item>
+        <item>50min</item>
+        <item>60min</item>
+        <item>70min</item>
+        <item>80min</item>
+        <item>90min</item>
+    </string-array>
+</resources>

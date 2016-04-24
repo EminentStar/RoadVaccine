@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:scrolling_image_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_home_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".Fragment_Home">
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_main"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="1000">
+
+            <!-- 1. Top -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="100"
+                android:background="@drawable/white_background" />
+
+            <!-- 2. Center -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="300"
+                android:orientation="horizontal"
+                android:weightSum="1000">
+
+
+                <!-- 1. Left -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="300" />
+
+                <!-- 2. Center-Center -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="400">
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/img_driveoff"
+                        android:onClick="onMainBtnClicked"
+                        android:scaleType="fitXY" />
+                </LinearLayout>
+
+                <!-- 3. Right -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="300" />
+
+            </LinearLayout>
+
+            <!-- 3. Drive - Car -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="150"
+                android:background="@drawable/white_background" />
+
+
+            <!-- 4. Bottom /  -->
+            <LinearLayout
+                android:id="@+id/ll_orcar"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="200"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="10dp"
+                                        >
+
+
+                    <br.com.halyson.ensharp.activity.ScrollingImageView
+                        android:id="@+id/myScroll1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="bottom"
+                        scrolling_image_view:speed="1dp"
+                        scrolling_image_view:src="@drawable/imgs_background" />
+
+                    <br.com.halyson.ensharp.activity.ScrollingImageView
+                        android:id="@+id/myScroll2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="bottom"
+                        scrolling_image_view:speed="1.9dp"
+                        scrolling_image_view:src="@drawable/imgs_foreground" />
+
+
+                    <ImageView
+                        android:id="@+id/maincar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"/>
+
+                </FrameLayout>
+            </LinearLayout>
+
+
+            <!-- 5. Parent / 3 Button-->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="250"
+                android:orientation="vertical"
+                android:weightSum="1000">
+
+                <!-- 1. Top -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="200"
+                    android:background="@drawable/white_background" />
+
+
+                <!-- 2. Center -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="500">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:background="@color/text_white"
+                        android:orientation="horizontal"
+                        android:weightSum="120">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="40"
+                            android:background="@color/text_white"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingRight="5dp"
+                            android:weightSum="300">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="140" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="150"
+                                android:gravity="center">
+
+                                <ImageButton
+                                    android:id="@+id/btn_q"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:background="@drawable/btn_questionpressed" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="10" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="40"
+                            android:background="@color/text_white"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingRight="5dp"
+                            android:weightSum="300">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="75" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="150"
+                                android:gravity="center">
+
+                                <ImageButton
+                                    android:id="@+id/btn_send"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:background="@drawable/btn_mappressed" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="75" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="40"
+                            android:background="@color/text_white"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingRight="5dp"
+                            android:weightSum="300">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="10" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="150"
+                                android:gravity="center">
+
+                                <ImageButton
+                                    android:id="@+id/btn_mycctv"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:background="@drawable/btn_cctvpressed" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="140" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 3. Bottom -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="300"
+                    android:background="@drawable/white_background" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,134 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen_default_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".DrawerLayout">
+
+    <LinearLayout
+        android:id="@+id/screen_default_content_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1000">
+
+        <!-- Top -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="90"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="100"
+                android:orientation="vertical"
+                android:weightSum="1000">
+
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/screen_default_toolbar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/namizzang"
+                    android:minHeight="?attr/actionBarSize"
+                    tools:context=".ToolBar">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical"
+                        android:weightSum="100">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="10"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="80"
+                            android:orientation="horizontal"
+                            android:weightSum="1000">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="110">
+
+                                <ImageButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:background="@drawable/img_leftsetting"
+                                    android:gravity="left|center_vertical"
+                                    android:onClick="onButtonsettingClicked" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="410"
+                                android:gravity="center|left">
+
+                                <ImageView
+                                    android:id="@+id/textView3"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/img_appname"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="470" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="10"></LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.Toolbar>
+            </LinearLayout>
+        </LinearLayout>
+        <!-- Center -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="900">
+
+            <FrameLayout
+                android:id="@+id/screen_default_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/linearLayout"
+                android:layout_below="@+id/screen_default_toolbar"
+                tools:context=".FrameLayout">
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/screen_default_navigation_drawer"
+        android:name="br.com.halyson.ensharp.fragment.NavigationDrawerFragment"
+        android:layout_width="@dimen/drawer_menu_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        tools:context=".NavigationDrawer"
+        tools:layout="@layout/fragment_drawer_menu" />
+</android.support.v4.widget.DrawerLayout>

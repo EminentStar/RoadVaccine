@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="310dp"
+    android:background="@drawable/ins_shape"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical">
+
+
+        <!-- 1. Title -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="1000">
+
+            <!-- TextView -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_weight="900">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="기능설정 설명"
+                    android:textColor="@android:color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- X Button -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="100"
+                android:orientation="vertical"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5" />
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="60">
+
+                    <ImageButton
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/btn_x"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignBottom="@+id/btn_ok"
+                        android:layout_alignParentRight="true"
+                        android:onClick="btn_xOnclicked"
+                        android:text="X"
+                        android:textColor="@android:color/black"
+                        android:background="@drawable/xxx"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="35" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 2. Line -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="445dp"
+        android:orientation="vertical"
+        android:weightSum="890">
+
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="445dp"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+
+                <!-- Top Line -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/dimgray" />
+
+                <!-- 1. Accident -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="72.5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1000">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="500">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/new_setting_accident" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="500">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:gravity="left|center"
+                            android:text="직접 설정한\n거리 내의 공사와\n사고정보 받기"
+                            android:textColor="@android:color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 2. Accident Line -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="2.5dp"
+                    android:background="@color/dimgray" />
+
+                <!-- 3. Caution -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="72.5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1000">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="500">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/new_setting_caution" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="500">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:gravity="left|center"
+                            android:text="설정한 거리 내의\n사고의심, 갓길정차\n차량 정보 받기"
+                            android:textColor="@android:color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 4. Caution Line -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="2.5dp"
+                    android:background="@color/dimgray" />
+
+                <!-- 5. Sleep -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="90.5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1000">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="500">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/new_setting_sleep2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="500">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginTop="7dp"
+                            android:gravity="left|top"
+                            android:text="설정한 시간마다\n목표크기를 넘어야\n종료되는 졸음예방\n음성 서비스 받기"
+                            android:textColor="@android:color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 5. Sleep Line -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="2.5dp"
+                    android:background="@color/dimgray" />
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

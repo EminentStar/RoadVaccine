@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.halyson.ensharp">
+
+    <!-- 네트워크 상태 권한 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 외장메모리 권한 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- API 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 데시벨 권한 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- GPS 권한 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- 일반 권한 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <!-- GCM 권한 -->
+    <permission android:name="br.com.halyson.ensharp.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="br.com.halyson.materialdesign.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!-- 진동을 위한 퍼미션 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <application
+        android:name=".MaterialDesignApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/img_appicon"
+        android:label="로드백신"
+        android:theme="@style/AppTheme">
+        <activity android:name="br.com.halyson.ensharp.activity.HomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
+
+        <activity android:name=".activity.SplashActivity" />
+
+        <activity
+            android:name=".activity.IntroductionActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".activity.First_introductionActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+
+        <service android:name=".fragment.MyService" android:enabled="true">
+        </service>
+
+        <service android:name=".fragment.OnService" android:enabled="true">
+        </service>
+
+        <service android:name=".fragment.SleepService" android:enabled="true">
+        </service>
+
+        <!-- GCM 처리 서비스 -->
+        <service android:name=".fragment.GCMIntentService" />
+
+        <!-- GCM 관련 브로드캐스트 메시지를 받을 수신자 -->
+        <receiver android:name="br.com.halyson.ensharp.fragment.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <!-- 메시지 수신 메시지 지정 -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="br.com.halyson.materialdesign" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="br.com.halyson.ensharp.fragment.GPSBroadcastReceiver">
+            <intent-filter>
+                <action android:name="arabiannight.tistory.com.sendreciver.gogogo">
+                </action></intent-filter>
+        </receiver>
+
+
+
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".activity.SecondActivity"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.second">
+        </activity>
+
+        <activity
+            android:name=".activity.PopupActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.popup"
+            />
+        <activity
+            android:name=".activity.LockPopupActivity"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.lockpopup"
+            />
+        <activity
+            android:name=".activity.Popup2Activity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.popup2"
+            />
+        <activity
+            android:name=".activity.LockPopup2Activity"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.lockpopup2"
+            />
+
+        <activity
+            android:name=".activity.SleepActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.sleep"
+            />
+        <activity
+            android:name=".activity.LockSleepActivity"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.locksleep"
+            />
+
+        <activity
+            android:name=".activity.TestActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.test"
+            />
+
+        <!-- CCTV -->
+        <activity
+            android:name=".activity.CctvActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.cctv"
+            />
+        <activity
+            android:name=".activity.LockCctvActivity"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.lockcctv"
+            />
+        <!-- // -->
+
+        <activity
+            android:name=".activity.MyCctvActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.mycctv"
+            />
+
+        <activity
+            android:name=".activity.Ins1Activity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.ins1"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".activity.Ins2Activity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.ins2"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".activity.Ins3Activity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.ins3"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".activity.Ins4Activity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity="br.com.halyson.materialdesign.ins4"
+            android:screenOrientation="portrait"
+            />
+
+
+    </application>
+
+</manifest>

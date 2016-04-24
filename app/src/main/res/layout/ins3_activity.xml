@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:background="@drawable/ins_shape"
+    android:orientation="vertical"
+    android:weightSum="1000">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="110"
+        android:orientation="vertical"
+        android:weightSum="110">
+
+        <!-- 1. Title -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="1000">
+
+            <!-- TextView -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_weight="900">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="기능 및 사용방법"
+                    android:textColor="@android:color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- X Button -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="100"
+                android:orientation="vertical"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5" />
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="60">
+
+                    <ImageButton
+
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/btn_x"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignBottom="@+id/btn_ok"
+                        android:layout_alignParentRight="true"
+                        android:onClick="btn_xOnclicked"
+                        android:text="X"
+                        android:textColor="@android:color/black"
+                        android:background="@drawable/xxx"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="35" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 2. Line -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="5dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="890"
+        android:weightSum="890">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fadeScrollbars="false"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:weightSum="890">
+
+                <!-- 1. Top Line -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/dimgray" />
+
+                <!-- 2. Action Content -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="132dp"
+                    android:orientation="vertical"
+                    android:weightSum="264">
+
+
+                    <!-- 2. Content -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="64">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_margin="3dp"
+                            android:gravity="left|center_vertical"
+                            android:text="● 졸음 방지 기능"
+                            android:textColor="@android:color/black"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- 4. Content -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="64">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_margin="3dp"
+                            android:gravity="left|center_vertical"
+                            android:text="● 2차 사고 예방 기능"
+                            android:textColor="@android:color/black"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- 6. Third-->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="64">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_margin="3dp"
+                            android:gravity="left|center_vertical"
+                            android:text="● 백그라운드 서비스(내비게이션과 함께 사용가능)"
+                            android:textColor="@android:color/black"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- 8. Fourth-->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="64">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_margin="3dp"
+                            android:gravity="left|center_vertical"
+                            android:text="● 기능설정 창을 통해 원하는 서비스만 받음."
+                            android:textColor="@android:color/black"
+                            android:textSize="13dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 3. Action Line -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="2.5dp"
+                    android:background="@color/dimgray" />
+
+                <!-- 4. Auto Push -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="102.5dp"
+                    android:orientation="vertical"
+                    android:weightSum="1000">
+
+                    <!-- Title & Icon -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="400"
+                        android:orientation="horizontal"
+                        android:weightSum="1000">
+
+                        <!-- 1. Title -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="440">
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_margin="5dp"
+                                android:gravity="left|center_vertical"
+                                android:text="내 위치 자동알림"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+                        <!-- Icon -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="150">
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_gravity="center"
+                                android:layout_margin="3dp"
+                                android:background="@drawable/btn_mappressed" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="410" />
+                    </LinearLayout>
+
+                    <!-- Content -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="600">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_margin="5dp"
+                            android:gravity="left|center_vertical"
+                            android:text="사용자가 고속도로 최저속도인 50km/h 이상으로\n주행 중 급정지하여 5초 동안 움직임이 없다면\n사고로 간주하여 후방차랑에게 자동으로 알림."
+                            android:textColor="@android:color/black"
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 5. Auto Line -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="2.5dp"
+                    android:background="@color/dimgray" />
+
+                <!-- 6. Manual Push -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="102.5dp"
+                    android:orientation="vertical"
+                    android:weightSum="1000">
+
+                    <!-- Title & Icon -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="400"
+                        android:orientation="horizontal"
+                        android:weightSum="1000">
+
+                        <!-- 1. Title -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="440">
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_margin="5dp"
+                                android:gravity="left|center_vertical"
+                                android:text="내 위치 수동알림"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+                        <!-- Icon -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="150">
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_gravity="center"
+                                android:layout_margin="3dp"
+                                android:background="@drawable/btn_mappressed" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="410" />
+                    </LinearLayout>
+
+                    <!-- Content -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="600">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_margin="5dp"
+                            android:gravity="left|center_vertical"
+                            android:text="사용자가 고속도로 주행 중 갓길정차, 가벼운 사고\n또는, 정차애 있는 나의 위치를 알려주고자 할 때\n메인 페이지의 버튼을 눌러 후방차량에게 수동 알림."
+                            android:textColor="@android:color/black"
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 7. Manual Line -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="2.5dp"
+                    android:background="@color/dimgray" />
+
+                <!-- 8. Simple -->
+                <!--
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="100.5dp"
+                    android:orientation="vertical"
+                    android:weightSum="1000">
+
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="400"
+                        android:orientation="horizontal"
+                        android:weightSum="1000">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="450">
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_margin="5dp"
+                                android:gravity="left|center_vertical"
+                                android:text="간편보기 ON/OFF"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="150">
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="3dp"
+                                android:background="@drawable/greenon" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="400" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="600">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_margin="5dp"
+                            android:gravity="left|center_vertical"
+                            android:text="ON - 사용자는 정보를 텍스트 창으로만 받음.\nOFF - 사용자는 정보 송진지점 까지의 거리, 송신\n지점과 근접한 CCTV, 텍스트 알림을 동시에 받음."
+                            android:textColor="@android:color/black"
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>-->
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

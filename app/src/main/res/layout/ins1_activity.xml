@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="500dp"
+    android:background="@drawable/ins_shape">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="55dp"
+            android:orientation="vertical">
+            <!-- 1. Title -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="1000">
+
+                <!-- TextView -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="900">
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:text="팀 소개"
+                        android:textColor="@android:color/black"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- X Button -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="100"
+                    android:orientation="vertical"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5" />
+
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="60">
+
+                        <ImageButton
+
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/btn_x"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_alignBottom="@+id/btn_ok"
+                            android:layout_alignParentRight="true"
+                            android:onClick="btn_xOnclicked"
+                            android:text="X"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/xxx"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="35" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 2. Line -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="445dp"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:fadingEdge="none"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:weightSum="890">
+
+                    <!-- 3. Team Image -->
+                    <LinearLayout
+                        android:layout_margin="5dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="185dp"
+                        android:background="@drawable/team">
+
+                    </LinearLayout>
+
+                    <!-- 4. Content -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="195dp">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:gravity="center"
+                            android:text="세종대학교 컴퓨터공학부 학생들로\n이뤄진 안전모 팀입니다.\n\n제4회 OpenOASIS 교통데이터 활용공모전에\n참가하여 고속도로에서 자동차에 안전 백신을\n부여하자는 의미로 프로젝트를 시작하게 되었고,\n그 결과 로드백신이라는 애플리케이션을\n제작하게 되었습니다."
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <!-- 5. Content Line -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="5dp" />
+
+                    <!-- 6. Content -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dp">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:gravity="center"
+                            android:text="세종대학교 학술동아리 En#"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
