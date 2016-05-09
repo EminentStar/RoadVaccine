@@ -28,18 +28,17 @@
 		the LAST "regId" is variable gotten from GCM Server.
 	*/	
 
-
 	/* The variable $incident is going to be used for store the last incident of incident table in DB  */	
 
-	/*Testing variable */
-
-	/*Request The Incident API and get the information as the JSON format*/
+	/* 사고 API를 받아오고 JSON 포맷으로 변환한다. */
 	$incResult = $serverMethods->getApiResult(INCIDENT_API_URL);
 	try{
 		$incResult_array = json_decode($incResult);
 	}catch(Exception $ex){
 		echo 'Caught exception: ', $e->getMessage(), "\n";
 	}
+
+	/* 공사 API를 받아오고 JSON포멧으로 변환한다. */
 	$consResult = $serverMethods->getApiResult(CONSTRUCTION_API_URL);
 	
 	try{
@@ -48,44 +47,47 @@
 		echo 'Caught exception: ', $e->getMessage(), "\n";
 	}
 
-	/* Seperate JSON Array to the each JSON Object  */
+	//사고 및 공사 JSON 어레이를 사고 list와 list요소의 개수로 나눈다.
 	$incList = $incResult_array->{"list"};
 	$incCount = $incResult_array->{"count"};
 	
 	$consList = $consResult_array->{"list"};
 	$consCount = $consResult_array->{"count"};
 	
-	/* get the last index of the incident list  */
+	/* 사고 및 공사 리스트의 마지막 Index */
 	$incCntNum = $incCount - 1;
 	$consCntNum = $consCount - 1;
 	
 	//Create the array which is going to be basis of the entire information string.
+	/* 전체 공사/사고 정보 문자열의 기본이 될 어레이 $wholeArray를 만든다. */
 	$wholeArray = array();
 
+	/* 공사나 사고가 1개라도 존재하면 apiJsonToArray 메서드를 호출하고,
+	공사와 사고 데이터를 하나의 $whileArray에 저장한다.   */
 	if($incCount > 0){
 		$serverMethods->apiJsonToArray($incCount, $incList, $wholeArray);
-	}
-	
-	/*  Check the Consctruction state   */	
+	}	
 	if($consCount > 0){
 		$serverMethods->apiJsonToArray($consCount, $consList, $wholeArray);
 	}
 	
+	/*
+	 * 어레이의 중복 사건들을 제거한다.
+ 	 */
 	if(count($wholeArray) > 0){	
 		$serverMethods->fastRemoveSameElement($wholeArray);
 		$serverMethods->removeSameElement($wholeArray);
 		$serverMethods->removeLastAttribute($wholeArray);
-	}
-	
-	
-	$wholeCnt = count($wholeArray);
-	$quotient = $wholeCnt/SEND_ONETIME ;
-	$remainder = $wholeCnt%SEND_ONETIME ;
+	}	
+
+	/* $wholeArray가 일정길이이상이면 분할하기위한 준비를 한다.  */
+	$wholeCnt = count($wholeArray); 	//57
+	$quotient = $wholeCnt/SEND_ONETIME ; 	//57/40 = 1
+	$remainder = $wholeCnt%SEND_ONETIME ;   // 57 % 40 = 17
 
 	print("the whole count is $wholeCnt \n");	
 	
-	//$subArray is array of the subarrays separated from $wholeArray
-	//$subArray = $serverMethods->arangeArray($wholeCnt, $quotient, $remainder);
+	/* $wholeArray로부터 일정크기(SEND_ONETIME)만큼 분할한 $subArray를 만든다. */
 	$subArray = array_chunk($wholeArray, SEND_ONETIME );
 
 	if(count($wholeArr != 0))
@@ -107,8 +109,12 @@
 				$wholeStr = "{".$wholeStr."}";		
 
 				echo $wholeStr."\n";
-				$gcmMessage = new gcm_message;
-				$gcmMessage->sendMessage($wholeStr);
+				try{
+					$gcmMessage = new gcm_message;
+					$gcmMessage->sendMessage($wholeStr);
+				}catch(Exception $ex){
+					echo 'Caught exception: ', $e->getMessage(), "\n";
+				}
 				for($sec = 0 ; $sec < 5 ; $sec++){
 					print(".");
 					sleep(1);
@@ -118,4 +124,5 @@
 		}
 		
 	}
+	print("End logic.\n");
 ?>

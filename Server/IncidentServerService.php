@@ -13,9 +13,6 @@ class IncidentServerService{
 		// choose a database
 		mysql_select_db(DB_NAME, $connect);
 
-		// Start Session
-		//session_start();
-
 		//  Create a query sentence.
 
 		//$sql = "select analdtmc, startx, starty from incident";
@@ -82,9 +79,6 @@ class IncidentServerService{
 		mysql_query("SET NAMES UTF8");
 		// choose a database
 		mysql_select_db(DB_NAME, $connect);
-
-		// Start Session
-		//session_start();
 
 		//  Create a query sentence.
 
@@ -169,7 +163,7 @@ class IncidentServerService{
 
 		return $result;
 	}
-	
+
 	public function apiJsonToString($paramInt, $paramJsonList, &$wholeList){
                 for($i = 0 ; $i < $paramInt; $i++){
                         $element = $paramJsonList[$i];
@@ -180,7 +174,8 @@ class IncidentServerService{
                         $wholeList .= ",";
                 }
         }
-
+	
+	//API의 JSON 리스트를 다차원 어레이로 변형한다.
         public function apiJsonToArray($paramInt, $paramJsonList, &$wholeArray){
                 for($i = 0; $i < $paramInt ; $i++){
                         $element = $paramJsonList[$i];
@@ -217,7 +212,10 @@ class IncidentServerService{
 	}
 	
         //Eliminate the element which is the same incident as later element. So we gatta campare to each other's incId.
-        public function removeSameElement(&$wholeArray){
+	/* 공사나 사고 정보의 경우는 같은 사건에 대해서 여러 데이터가 존재한다.
+	 * 그래서 incId비교를 통해서 하나만 남겨두고 나머지 요소는 제거한다.(중복된 incId중 가장 뒤에 있는 요소만 남긴다.)
+	 */
+	public function removeSameElement(&$wholeArray){
                 $isRemoved = false;
 		define("INCID","6");
 		$delCnt = 0;
