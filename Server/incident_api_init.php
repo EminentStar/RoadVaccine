@@ -1,10 +1,13 @@
 <?php
+	/* 한국도로공사의 교통데이터 API의 주소를 저장한다. */
 	define("INCIDENT_API_URL","http://data.ex.co.kr/openapi/safeDriving/safeDrivingSupport?key=5460526240&type=json&incTpCd=00");
 	define("CONSTRUCTION_API_URL","http://data.ex.co.kr/openapi/safeDriving/safeDrivingSupport?key=5460526240&type=json&incTpCd=03");	
 	
+	//API의 ID번호가 00이면 사고, 03이면 공사정보임을 나타낸다.
 	define("INCIDENT_ID","00");
 	define("CONSTRUCT_ID","03");
 	
+	/* DB접속정보를 저장한다.*/
 	define("HOST","en605.woobi.co.kr");
 	define("USER","en605");	
 	define("PASSWD","1230");	
