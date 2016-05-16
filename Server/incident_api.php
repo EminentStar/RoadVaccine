@@ -82,15 +82,9 @@
 	
 		//print('remove same element(inc)\n');	
 		$serverMethods->fastRemoveSameElement($incArray);
-                $serverMethods->removeSameElement($incArray);
 
 		//print('remove same element(cons)\n');	
 		$serverMethods->fastRemoveSameElement($consArray);
-                $serverMethods->removeSameElement($consArray);
-		
-		$serverMethods->removeLastAttribute($incArray);
-		$serverMethods->removeLastAttribute($consArray);
-		
 
 		$incArrayCnt = count($incArray);
 		$consArrayCnt = count($consArray);		

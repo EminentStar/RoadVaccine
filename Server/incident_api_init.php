@@ -58,7 +58,6 @@
 	$incCntNum = $incCount - 1;
 	$consCntNum = $consCount - 1;
 	
-	//Create the array which is going to be basis of the entire information string.
 	/* 전체 공사/사고 정보 문자열의 기본이 될 어레이 $wholeArray를 만든다. */
 	$wholeArray = array();
 
@@ -76,8 +75,6 @@
  	 */
 	if(count($wholeArray) > 0){	
 		$serverMethods->fastRemoveSameElement($wholeArray);
-		$serverMethods->removeSameElement($wholeArray);
-		$serverMethods->removeLastAttribute($wholeArray);
 	}	
 
 	/* $wholeArray가 일정길이이상이면 분할하기위한 준비를 한다.  */
@@ -89,10 +86,9 @@
 	
 	/* $wholeArray로부터 일정크기(SEND_ONETIME)만큼 분할한 $subArray를 만든다. */
 	$subArray = array_chunk($wholeArray, SEND_ONETIME );
-
 	if(count($wholeArr != 0))
 	{
-		if( $quotient < 1 ){
+		if( $quotient < 1 ){ //sub chunk가 한개 일 때
 			$wholeStr = $serverMethods->multipleArrayToString($subArray[0]);
 			
 			$wholeStr = "{".$wholeStr."}";
@@ -100,7 +96,7 @@
 			echo $wholeStr."\n";		
 			$gcmMessage = new gcm_message;
 			$gcmMessage->sendMessage($wholeStr);	
-		}else{	
+		}else{	// sub chunk가 한 개 이상 OR  한개인데 최대길이 일때
 			for($i = 0; $i <= $quotient ; $i++){
 				if( ($i == $quotient) && ($remainder == 0) ){
 					break;
