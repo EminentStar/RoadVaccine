@@ -5,35 +5,29 @@ define("USER","en605");
 define("PASSWD","1230");
 define("DB_NAME","en605");
 
+/*IncidentServerService 클래스는 공사/사고 데이터를 가공하는데 필요한 메서드의 집합이다.*/
 class IncidentServerService{
 	public function getLastIncident(&$incident){
 		$connect=mysql_connect(HOST, USER, PASSWD) or die( "Fail to connect to SQL Server");
 
 		mysql_query("SET NAMES UTF8");
-		// choose a database
+	
 		mysql_select_db(DB_NAME, $connect);
 
-		//  Create a query sentence.
-
-		//$sql = "select analdtmc, startx, starty from incident";
 		$sql = "select analdtmc, count from incident";
 
-		// store the query execution result into the variable $result.
 		$result = mysql_query($sql, $connect);
 
-		//Save the the number of the records returned.
 		$total_record = mysql_num_rows($result);
 
 		//The last incident exists in DB.
 		if($total_record == 1 ){
 			//move the pointer which will bring the record
 			mysql_data_seek($result, $i);
-
 			$row = mysql_fetch_array($result);
 			$incident->setAnaldtmc($row[analdtmc]);
 			$incident->setCount($row[count]);
 		}
-
 		mysql_close($connect);
 	}
 	
@@ -77,15 +71,11 @@ class IncidentServerService{
 		$connect=mysql_connect(HOST, USER, PASSWD) or die( "Fail to connect to SQL Server");
 
 		mysql_query("SET NAMES UTF8");
-		// choose a database
+
 		mysql_select_db(DB_NAME, $connect);
-
-		//  Create a query sentence.
-
-		//$sql = "select analdtmc, startx, starty from incident";
+	
 		$sql = "SELECT analdtmc, count FROM construction";
 
-		// store the query execution result into the variable $result.
 		$result = mysql_query($sql, $connect);
 
 		//Save the the number of the records returned.
@@ -95,12 +85,10 @@ class IncidentServerService{
 		if($total_record == 1 ){
 			//move the pointer which will bring the record
 			mysql_data_seek($result, $i);
-
 			$row = mysql_fetch_array($result);
 			$construction->setAnaldtmc($row[analdtmc]);
 			$construction->setCount($row[count]);
 		}
-
 		mysql_close($connect);
 	}
 
@@ -139,16 +127,16 @@ class IncidentServerService{
 		return $result;
 	}
 
+	//교통데이터를 데이터센터로부터 받아온다.
 	public function getApiResult($url){
-		//First,
 		$curl = curl_init();
 		
-		//Second,
+		//url로 부터 결과값을 받을 것이라는 설정
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
 			CURLOPT_URL => $url
 		));
-		//Third,
+		//결과 반환
 		$result = curl_exec($curl);
 	
 		if(substr($url, -2) == "00"){ //If the last two characters were "00", this URL might mean that we are requesting Incident API.
@@ -158,12 +146,12 @@ class IncidentServerService{
 		}
 		echo "[  Requesting the ".$apiKind." API, Time: ". date('Y-m-d h:i:sa',time()) . "  ]\n";
 		
-		//Lastly,
 		curl_close($curl);
 
 		return $result;
 	}
 
+	//JSON 객체를 문자열로 변경한다.
 	public function apiJsonToString($paramInt, $paramJsonList, &$wholeList){
                 for($i = 0 ; $i < $paramInt; $i++){
                         $element = $paramJsonList[$i];
@@ -185,7 +173,8 @@ class IncidentServerService{
                         array_push($wholeArray,$eArray);
                 }
         }
-
+	
+	//정렬된 데이터 배열을 하나의 문자열로 변환한다.
         public function multipleArrayToString(&$wholeArray){
                 $wholeStr = "";
 
@@ -203,18 +192,8 @@ class IncidentServerService{
                 }
                 return $wholeStr;
         }
-
-	public function removeLastAttribute(&$wholeArray){
-		define("INCID", "6");
-		foreach($wholeArray as &$element){
-			unset($element[INCID]);
-		}
-	}
 	
-        //Eliminate the element which is the same incident as later element. So we gatta campare to each other's incId.
-	/* 공사나 사고 정보의 경우는 같은 사건에 대해서 여러 데이터가 존재한다.
-	 * 그래서 incId비교를 통해서 하나만 남겨두고 나머지 요소는 제거한다.(중복된 incId중 가장 뒤에 있는 요소만 남긴다.)
-	 */
+	//문제가 있던 중복사건 제거 알고리즘
 	public function removeSameElement(&$wholeArray){
                 $isRemoved = false;
 		define("INCID","6");
@@ -226,7 +205,6 @@ class IncidentServerService{
                                         $wholeArray = array_values($wholeArray);
                                         $i = -1; // When facing continue statement, you need to plus $i once, so you gotta intend $i to be 0.
                                         $isRemoved = true;
-				//	print("$delCnt times deleted\n");
 					$delCnt++;
                                         break;
                                 }
@@ -239,7 +217,11 @@ class IncidentServerService{
                 }
                 $wholeArray = array_values($wholeArray);
         }
-	
+
+        //Eliminate the element which is the same incident as later element. So we gatta campare to each other's incId.
+	/* 공사나 사고 정보의 경우는 같은 사건에 대해서 여러 데이터가 존재한다.
+	 * 그래서 incId비교를 통해서 하나만 남겨두고 나머지 요소는 제거한다.(중복된 incId중 가장 뒤에 있는 요소만 남긴다.)
+	 */	
 	public function fastRemoveSameElement(&$wholeArray){
 		define("INCID", "6");
 	
@@ -253,14 +235,13 @@ class IncidentServerService{
 		
 		for($currIndex = 0 ; $currIndex < ($arrCnt - 1) ; $currIndex++ ){
 			if($wholeArray[$lastIndex][INCID] == $wholeArray[$currIndex][INCID] ){
-			//if lastIndex is the same as currIndex,
+				//lastIndex가 currIndex와 같을때 넘어간다.
 				$lastIndex = $currIndex ;
 				continue;
 			}else{
-			//if lastIndex is not the same as currIndex,
+				//lastIndex가 currIndex와 같지 않을때, 그이전까지의 중복요소들을 하나만 남기고 전부 제거한다.
 				for($j = 0 ; $j < ($lastIndex - $firstIndex) ; $j++){
 					unset($wholeArray[$firstIndex + $j]);
-				//	print("$delCnt times deleted \n");
 					$delCnt++;
 				}
 				$firstIndex = $currIndex ; 
@@ -269,7 +250,5 @@ class IncidentServerService{
 		}
 		$wholeArray = array_values($wholeArray);
 	}
-
 }
-
 ?>
