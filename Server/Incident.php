@@ -1,12 +1,12 @@
 <?php
 
  class Incident{
-                private $incid;
-                private $analdtmc;
-                private $startx;
-                private $starty;
-		private $count;
-		
+                private $incid; //가장 마지막 사고의 ID
+                private $analdtmc; //가장 마지막 사고의 발생시간
+                private $startx; //가장 마지막 사고의 경도
+                private $starty; //가장 마지막 사고의 위도
+		private $count; //현재 공사상황의 개수
+
                 public function getIncid(){
                         return $this->incid;
                 }
